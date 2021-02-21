@@ -1,4 +1,9 @@
-//0-module_1-task_function of summing two numbers
+/**
+ * sum
+ * @param {number} m
+ * @param {number} n
+ * @returns {number}
+ */
 function sum(number1, number2) {
   let summa = number1+number2;
   return summa;  
