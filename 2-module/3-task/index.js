@@ -1,7 +1,7 @@
 let calculator = {
     
     read: function (num1, num2) {
-      numbers = [num1,num2];
+      numbers = [num1, num2];
     },
     
     sum: function () {
