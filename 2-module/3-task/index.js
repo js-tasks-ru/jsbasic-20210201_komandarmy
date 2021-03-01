@@ -1,16 +1,16 @@
 let calculator = {
-    
-    read: function (num1, num2) {
-      numbers = [num1, num2];
-    },
-    
-    sum: function () {
-      return numbers[0] + numbers[1];
-    },
-    
-    mul: function () {
-      return numbers[0] * numbers[1];
-    }
+  read(a, b) {
+    this.number1 = a;
+    this.number2 = b;
+  },
+  
+  sum() {
+    return this.number1 + this.number2;
+  },
+
+  mul() {
+    return this.number1 * this.number2;
+  },
 };
 
 // НЕ УДАЛЯТЬ СТРОКУ, НУЖНА ДЛЯ ПРОВЕРКИ

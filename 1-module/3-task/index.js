@@ -16,6 +16,3 @@ function ucFirst(str) {
   let firstSymbol = str.charAt(0)
   return (firstSymbol.toUpperCase()+str.slice(1,lengthStr))
 }
-ucFirst('вася')
-ucFirst('в')
-ucFirst('')
