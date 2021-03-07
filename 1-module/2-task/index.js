@@ -12,7 +12,18 @@ function print(text) {
  * @returns {boolean}
  */
 function isValid(name) {
-  // ваш код...
+  if (name === "" || name===null) {
+    return false;
+  }  
+ 
+  let lengthName = name.length;
+  let MAX_LENGTH_NAME = 4
+  if (lengthName < MAX_LENGTH_NAME) {
+    return false;
+  } 
+  
+  let isSpaceInName=name.includes(" ");
+  return !isSpaceInName
 }
 
 function sayHello() {

@@ -4,5 +4,15 @@
  * @returns {string}
  */
 function ucFirst(str) {
-  // ваш код...
+  if (str == "") {
+  return "";
+  }
+   
+  let lengthStr = str.length
+  if (lengthStr == 1) {
+  return str.toUpperCase()
+  }
+
+  let firstSymbol = str.charAt(0)
+  return (firstSymbol.toUpperCase()+str.slice(1,lengthStr))
 }
