@@ -1,7 +1,8 @@
 function makeDiagonalRed(table) {
-  let lengthTable = document.getElementsByTagName('table').item(0).getElementsByTagName('tr').length;
+  console.log(table === null);
+  let rowsCount = table.querySelectorAll('tr').length;
  
-  for (let indexCell=0; indexCell < lengthTable; indexCell++ ) {
-    table.rows[indexCell].cells[indexCell].style.backgroundColor = 'red';
+  for (let i=0; i < rowsCount; i++ ) {
+    table.rows[i].cells[i].style.backgroundColor = 'red';
   }
 }
