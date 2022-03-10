@@ -13,45 +13,80 @@
  *
  */
 export default class UserTable {
+  
   constructor(rows) {
-    this.elem = document.createElement('table');
+    
+    //create <div> class modul
+    let divModul = document.createElement('DIV');
+    divModul.setAttribute('class', 'modul');
+    this.elem = divModul;
 
-    this.elem.innerHTML = `
-      <thead>
-          <tr>
-            <td>Имя</td>
-            <td>Возраст</td>
-            <td>Зарплата</td>
-            <td>Город</td>
-            <td></td>
-          </tr>
-      </thead>
-    `;
+        //create table
+        let ourTable = document.createElement('TABLE');
+        divModul.appendChild(ourTable);
+        
+            // create table head
+            let ourTableHead = document.createElement('THEAD');
+            //add the created header to the table
+            ourTable.appendChild(ourTableHead);
+          
+                //create TR for table head
+                let ourTR = document.createElement('TR');
+                //add the created TR to the table header
+                ourTableHead.appendChild(ourTR);   
 
-    let tbody = this.elem.querySelector('tbody');
+                    //create TH and add to TR(THEAD)
+                    let nameRow = document.createElement('TH');
+                    nameRow.innerHTML = "Имя";
+                    ourTR.appendChild(nameRow);
 
-    let tableInner = rows.map(row => {
-      let cellsWithData = Object.values(row) // для каждого значения из объекта row
-        .map(value => `<td>${value}</td>`) // обернуть его в <td>
-        .join(''); // полученный массив <td>...</td> объединить в одну строку
+                    let age = document.createElement('TH');
+                    age.innerHTML = "Возраст";
+                    ourTR.appendChild(age);
 
-      return `
-          <tr>
-            ${cellsWithData}
-            <td><button>X</button></td>
-          </tr>
-        `; // возвращаем верстку одной строки
-    }).join('');
+                    let salary = document.createElement('TH');
+                    salary.innerHTML = "Зарплата";
+                    ourTR.appendChild(salary);
 
-    this.elem.innerHTML += `
-      <tbody>
-        ${tableInner}
-      <tbody>
-    `; // оборачиваем полученные строчки в tbody
+                    let city = document.createElement('TH');
+                    city.innerHTML = "Город";
+                    ourTR.appendChild(city);
 
-    this.elem.addEventListener('click', (event) => this.onClick(event));
+            //create table body
+            let ourTableBody = document.createElement('TBODY');
+            //add created table body to our table
+            ourTable.appendChild(ourTableBody);
+
+                //add info from array
+                //add row(tr)
+                for (let i = 0; i < rows.length; i++) {
+                    let tr = document.createElement('TR');
+                    ourTableBody.appendChild(tr);
+
+                      //add data(td)
+                        let nameTd = document.createElement('TD');
+                        nameTd.innerHTML = rows[i].name;
+                        tr.appendChild(nameTd);
+
+                        let ageTd = document.createElement('TD');
+                        ageTd.innerHTML = (rows[i].age);
+                        tr.appendChild(ageTd);
+                        
+                        let salaryTd = document.createElement('TD');
+                        salaryTd.innerHTML = rows[i].salary;
+                        tr.appendChild(salaryTd);
+                      
+                        let cityTd = document.createElement('TD');
+                        cityTd.innerHTML = rows[i].city;
+                        tr.appendChild(cityTd);
+                        
+                        //create del button
+                        let delTd = document.createElement('TD');
+                        delTd.innerHTML = '<button>X</button>';
+                        tr.appendChild(delTd);
+                }
+                this.elem.addEventListener('click', (event) => this.onClick(event));
   }
-
   onClick(event) {
     if (event.target.tagName != 'BUTTON') {
       return;
@@ -61,5 +96,4 @@ export default class UserTable {
 
     tr.remove();
   }
-
 }
