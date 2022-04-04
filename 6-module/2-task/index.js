@@ -48,9 +48,7 @@ export default class ProductCard {
               imgButton.setAttribute('src', '/assets/images/icons/plus-icon.svg');
               imgButton.setAttribute('alt', 'icon');
               cardButton.appendChild(imgButton);
-    console.dir(this.elem.innerHTML);          
-              
-              
+                
   }
             
   //create add button click event
@@ -64,5 +62,6 @@ export default class ProductCard {
       detail: this.product.id,
       bubbles: true
     }));
+    console.log(CustomEvent.innerHeight);
   }
 }
